@@ -21,7 +21,6 @@ node_modules/
 .DS_Store
 .idea/**
 /yarn-error.log
-/src/pages/home_v4
-/src/pages/home_v3
+
 
 
