@@ -7,7 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var photos = require('./routes/photos');
-
+console.log(111, photos)
 var app = express();
 
 // view engine setup
@@ -22,8 +22,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', photos.list);
+// app.use('/upload', photos.form);
+// app.post('/upload', photos.submit(app.get('photos')));
 // app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
 // app.use('/photos', photosRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
