@@ -3,6 +3,7 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+   
   </head>
   <body>
     <h1><%= title %></h1>
@@ -10,11 +11,22 @@
     <p>express stock photo application</p>
     <div id="photos">
         <% photos.forEach(function(photo) { %>
-            <div class="photo">
+            <div  class="photo">
                 <h2><%=photo.name%></h2>
-                <img src='<%=photo.path%>' alt="图片">
+                <img src="/photos/<%=photo.path%>" alt="图片">
+                <p>图片链接： "<span class="getPhotoHref"></span><span class="getPhoto">/photos/<%=photo.path%></span> "</p>
             </div>
         <% }) %>
     </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        let host = window.location.host
+        let protocol= window.location.protocol
+        console.log(111, protocol, host)
+        // $('.getPhotoHref').css("background-color","yellow");
+        $('.getPhotoHref').text(protocol+'//'+ host);
+      });
+    </script>
   </body>
 </html>
