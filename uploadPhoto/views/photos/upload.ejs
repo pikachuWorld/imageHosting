@@ -6,11 +6,11 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>upload a photo to your account below</p>
+    <p>上传图片</p>
     <form  method='post' enctype="multipart/form-data">
-        <p> <input type="text" name='photoName' placeholder="name" /></p>
-        <p><input type="file" name='photoImage' /></p>
-        <p><input type="submit" value="Upload" /></p>
+        <p> <input type="text" class="photo-name" name='photoName' placeholder="name" /></p>
+        <p><input type="file" class="photo-image" name='photoImage' /></p>
+        <p><input type="submit"  class="btn photo-upload" value="Upload" /></p>
     </form>
      
   </body>
