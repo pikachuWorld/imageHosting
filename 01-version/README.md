@@ -12,17 +12,3 @@
 之后再次安装：npm install -g express 
 
 好了，没问题了。-->
-
-
-<!-- change directory:
-$ cd uploadPhoto
-
-install dependencies:
-$ npm install
-
-run the app:
-$ DEBUG=uploadphoto:* npm start -->
-
-
-
-
