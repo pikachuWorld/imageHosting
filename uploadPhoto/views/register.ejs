@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <% include menu %>
+  
+    <p>欢迎来到注册页面</p>
+     <% include messages %>
+    <form action='/register' method='post'>
+        <p>
+            <label class="" for="">姓名:</label>
+            <input type="text" name='name' placeholder='Username'/>
+        </p>
+        <p>
+            <label class="" for="">密码:</label>
+            <input type="password" name='pass' placeholder='Password' />
+        </p>
+        <p>
+            <label class="" for="">手机:</label>
+            <input type="text" name='iphone' placeholder='iphone' />
+        </p>
+
+        <p>
+            
+            <input type="submit"  value='sign up'/>
+        </p>
+    </form>
+  </body>
+</html>

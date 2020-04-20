@@ -14,14 +14,16 @@
 好了，没问题了。-->
 
 
-<!-- change directory:
+<!-- 
+change directory:
 $ cd uploadPhoto
 
 install dependencies:
 $ npm install
 
 run the app:
-$ DEBUG=uploadphoto:* npm start -->
+$ DEBUG=uploadphoto:* npm start 
+-->
 
 
 

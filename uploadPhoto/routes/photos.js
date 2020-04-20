@@ -33,10 +33,10 @@ exports.form = function(req, res){
     })
 }
 exports.submit = function(dir){
-    console.log(22, dir)
+    // console.log(22, dir)
    return function(req, res, next){
     // console.log(3333, req.files[0]);
-       console.log(33, req.files, req.body, next)
+    //    console.log(33, req.files, req.body, next)
         var img = req.files.photoImage;
         var name = req.body.photoName || img.name;
         var path = join(dir, img.name);
