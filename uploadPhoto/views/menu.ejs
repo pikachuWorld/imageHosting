@@ -5,7 +5,37 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <!-- <h1><%= title %></h1> -->
-    <p>Welcome to menus</p>
+   
+    <% if (locals.user) { %>
+      <div id="menu">
+        <div class="left text bottom">
+          <small>Sophia</small>加油鸭
+           
+        </div>
+        <div class="right">
+          <input type="hidden" id="resdisName" value='<%= user.name %>' />
+          <input type="hidden" id="redisId" value='<%= user.id %>' />
+          <span class='name'> --欢迎 <%= user.name %> 驾到-</span>
+            <!-- <a href="/post">待开发</a> -->
+            <a href="/" class="btn-link">图片列表</a>
+            <a href="/upload" class="btn-link">上传图库</a>
+            <a href="/logout">退出</a>
+        </div>
+        <!-- <span><  %= user %></span>  -->
+       
+      </div>
+    <% } else { %>
+      <div id="menu">
+        <div class="left">
+          <small>金</small>点点
+        </div>
+        <div class="right">
+          <a href="/login">登录</a>
+          <a href="/register">注册</a>
+        </div>
+        
+      </div>
+    <% } %>
+
   </body>
 </html>

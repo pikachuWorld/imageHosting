@@ -6,15 +6,15 @@
    
   </head>
   <body>
-    <h1><%= title %></h1>
-
-    <p>express stock photo application</p>
+    <%- include('../menu') %>
+    <h2><%= title %></h2>
+    <!-- <p>express stock photo application</p> -->
     <div id="photos">
         <% photos.forEach(function(photo) { %>
             <div  class="photo">
                 <h2><%=photo.name%></h2>
                 <img src="/photos/<%=photo.path%>" alt="图片">
-                <p>图片链接： "<span class="getPhotoHref"></span><span class="getPhoto">/photos/<%=photo.path%></span> "</p>
+                <p class="default-corlor">图片链接： "<span class="getPhotoHref"></span><span class="getPhoto">/photos/<%=photo.path%></span> "</p>
             </div>
         <% }) %>
     </div>

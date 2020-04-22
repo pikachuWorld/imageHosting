@@ -12,12 +12,14 @@ var multer  = require('multer');
 var photos = require('./routes/photos');
 var register = require('./routes/register');
 var usersRouter = require('./routes/users');
+var user = require('./lib/middleware/user');
 var messages = require('./lib/messages');
-
+var login = require('./routes/login')
 
 var app = express();
 
 // view engine setup
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.set('photos', path.join(__dirname, 'public/photos'));
@@ -29,10 +31,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride())
 app.use(cookieParser('you serect here'));
 app.use(session())
-app.use(messages)
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(user)
+app.use(messages)
+
+
+
 
 app.use(multer({dest: app.get('photos')}));
 // console.log('***111', photos)
@@ -43,8 +48,14 @@ console.log('*****222', register)
 
 app.get('/register', register.form);
 app.post('/register', register.submit);
+
+app.get('/login',  login.form);
+app.post('/login', login.submit);
+app.get('/logout', login.logout);
+
 // // app.use('/', indexRouter);
 app.use('/users', usersRouter); //用路由
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

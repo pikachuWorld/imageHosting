@@ -4,14 +4,14 @@ var db = redis.createClient()
 
 
 function User(obj){
-    console.log('obj--->', this)
+    // console.log('obj--->', this)
     for(var key in obj){
         this[key] = obj[key];
     }
 }
 //用户模型save实现
 User.prototype.save = function(fn){
-    console.log('#888888---save-->', this)
+   
     if(this.id) {
        this.update(fn)
     } else {
@@ -31,9 +31,8 @@ User.prototype.save = function(fn){
 User.prototype.update = function(fn){
     var user = this;
     var id = user.id
-    console.log('@@@update11-this-->', this)
-    db.set('user:id'+ user.name, id, function(err){
-        console.log('@@@update22--->', id, 'user-->', user)
+    // console.log('*****update---this', this)
+    db.set('user:id:' + user.name, id, function(err){
         if(err) return fn(err);
         db.hmset('user:' +id, user, function(err){
             fn(err)
@@ -57,29 +56,24 @@ User.prototype.hashPassword = function(fn) {
 }
 //从redis中取得用户
 User.getByName = function(name, fn){
-    console.log('***11-->name', name)
     User.getId(name, function(err, id){
-        console.log('***11-2222->name', err, 'id--->', id)
         if(err) return fn(err);
         User.get(id, fn);
     })
 }
 User.getId= function(name, fn){
-     console.log('***22getId--->', name)
-    db.get('user :id:'+name, fn)
+     db.get('user:id:' + name, fn)
 } 
    
 User.get = function(id, fn){
-    console.log('***33!!!get--->', id)
     db.hgetall('user:' + id, function(err, user){
-        
+        // console.log('******', user)
         if(err) return fn(err);
         fn(null, new User(user));
     })
 }
 //认证用户登录
 User.authenticate= function(name, pass ,fn){
-    
     User.getByName(name, function(err, user){
         if(err) return fn(err);
         if(!user.id) return fn()

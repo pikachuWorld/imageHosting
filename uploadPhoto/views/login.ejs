@@ -6,9 +6,9 @@
   </head>
   <body>
     <% include menu %>
-    <p>欢迎来到注册页面</p>
+    <h2>登录</h2>
      <% include messages %>
-    <form action='/register' method='post'>
+    <form action='/login' method='post'>
         <p>
             <label class="" for="">姓名:</label>
             <input type="text" name='name' class="photo-name" placeholder='请输入用户名'/>
@@ -18,15 +18,7 @@
             <input type="password" name='pass' class="photo-name" placeholder='请输入密码' />
         </p>
         <p>
-            <label class="" for="">手机:</label>
-            <input type="text" name='iphone' class="photo-name" placeholder='请输入手机号' />
-        </p>
-        <p>
-          <label class="" for="">邮箱:</label>
-          <input type="text" name='email' class="photo-name" placeholder='请输邮箱' />
-        </p>
-        <p> 
-            <input type="submit"   class="btn photo-upload" value='注册'/>
+            <input type="submit"   class="btn photo-upload"  value='登录'/>
         </p>
     </form>
   </body>

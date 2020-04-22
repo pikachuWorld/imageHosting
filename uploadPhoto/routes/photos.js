@@ -1,9 +1,12 @@
 
-var Photo = require('../models/Photo')
+
 var path = require('path')
 var fs = require('fs')
-var join = path.join;
 
+var join = path.join;
+var Photo = require('../models/Photo')
+
+var User = require('../lib/user')
 // var photos= [];
 // photos.push({
 //     name: 'Node.js Logo',
@@ -23,7 +26,7 @@ var join = path.join;
 exports.list = function(req, res, next){
 	Photo.find({}, function(err, photos){
 		if(err) return next(err);
-		res.render('photos', {title: '**图片列表**', photos: photos});
+		res.render('photos', {title: '图片列表', photos: photos});
 	});
 }
 //连上数据库
@@ -33,22 +36,33 @@ exports.form = function(req, res){
     })
 }
 exports.submit = function(dir){
-    // console.log(22, dir)
+  
+    
    return function(req, res, next){
-    // console.log(3333, req.files[0]);
-    //    console.log(33, req.files, req.body, next)
-        var img = req.files.photoImage;
-        var name = req.body.photoName || img.name;
-        var path = join(dir, img.name);
-        fs.rename(img.path, path, function(err){
-            if(err) return next(err);
-            Photo.create({
-                name: name,
-                path: img.name
-            }, function(err){
+    var userIP = req.headers['x-forwarded-for']  || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress;
+    
+    console.log('----88IP----->, ',  userIP,'*******222---图片提交', req.user, req.user.name, req.user.id)
+
+        if(!req.user){
+            res.redirect('/login');
+        } else {
+            var img = req.files.photoImage;
+            var name = req.body.photoName || img.name;
+            var path = join(dir, img.name);
+            fs.rename(img.path, path, function(err){
                 if(err) return next(err);
-                res.redirect('/')
+                Photo.create({
+                    name: name,
+                    path: img.name,
+                    userName: req.user.name,
+                    userId: req.user.id,
+                    userIp: userIP
+                }, function(err){
+                    if(err) return next(err);
+                    res.redirect('/')
+                });
             });
-        });
+        }
+       
    };
 };

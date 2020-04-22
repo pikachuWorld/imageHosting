@@ -12,7 +12,6 @@ res.error = function(msg){
 }
 module.exports = function(req, res, next){
     // console.log('#####111#-message-->', req.session)
-    // console.log('######222-message-->', res.session)
     res.locals.messages = req.session.messages || []
     res.locals.removeMessages = function(){
         req.session.messages = []
