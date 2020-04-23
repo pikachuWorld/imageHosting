@@ -46,8 +46,8 @@ h2,.default-corlor{
   color: #71777c;
   font-size: 16px;
 }
-#menu a.btn-link{
-
+#menu a:hover{
+  color: #07c160;
 }
 
 /* #photos{
