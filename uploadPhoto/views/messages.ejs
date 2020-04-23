@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <!-- <h1><%= title %></h1> -->
+    <!-- <p>Welcome to messages</p> -->
+    <% if (locals.messages) { %>
+      <% messages.forEach(function(message) { %>
+        <p class='<%= message.type %>'> <%= message.string %> </p>
+      <% }) %>
+      <% removeMessages() %>
+    <% } %>
+
+
+  </body>
+</html>

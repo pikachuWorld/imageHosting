@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <% include menu %>
+    <h2>登录</h2>
+     <% include messages %>
+    <form action='/login' method='post'>
+        <p>
+            <label class="" for="">姓名:</label>
+            <input type="text" name='name' class="photo-name" placeholder='请输入用户名'/>
+        </p>
+        <p>
+            <label class="" for="">密码:</label>
+            <input type="password" name='pass' class="photo-name" placeholder='请输入密码' />
+        </p>
+        <p>
+            <input type="submit"   class="btn photo-upload"  value='登录'/>
+        </p>
+    </form>
+  </body>
+</html>

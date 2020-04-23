@@ -21,6 +21,7 @@ node_modules/
 .DS_Store
 .idea/**
 /yarn-error.log
-
-
+uploadPhoto/node_modules/
+uploadPhoto/.history/
+uploadPhoto/public/photos/
 
