@@ -1,10 +1,15 @@
 
-html,body {
+html,body{
   /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #f4f5f5;
-  padding: 50px 0 0 50px;
+  /* padding: 50px 0 0 50px; */
   box-sizing: border-box;
+ margin:0;
+ padding: 0;
+}
+P{
+  margin:0;
 }
 
 a {
@@ -34,7 +39,7 @@ h2,.default-corlor{
 }
 #menu .left{
   font-size: 25px;
-  color: #07c160;
+  color: #16a085;
   text-shadow: 0 0 .1em, 0 0 .3em;
 }
 #menu .name:after{
@@ -47,15 +52,66 @@ h2,.default-corlor{
   font-size: 16px;
 }
 #menu a:hover{
-  color: #07c160;
+  color: #16a085;
 }
 
 /* #photos{
   background-color: #fff;
 } */
+.main, .login-main, .register-main, .upload-main{
+  width: 70%;
+  position: absolute;
+  top: 70px;
+  left:50px;
+  z-index: 500;
+  /* background-color: #fff; */
+  box-sizing: border-box;
+}
+.main h2, .login-main h2, .register-main h2, .upload-main h2{
+  font-size: 24px;
+  margin-top: 20px;
+  font-weight: normal;
+}
+
+.photos-list{
+  margin-top: 20px;
+  
+}
+
+.photo-info{
+ display: flex;
+ /* flex-direction: row;
+ justify-content:flex-start; */
+ font-size: 14px;
+}
+.photo-info-img{
+ 
+}
+.photo-info-link{
+  font-size: 14px;
+  margin-left: 10px;
+
+}
+.photo-info-link-path, .photo-info-link-path p{
+  font-size: 14px;
+  margin-top: 10px;
+}
+.photo-info-link-copy{
+  margin-top: 10px;
+}
+button.btn{
+  padding:  5px 10px;
+  margin-left: 10px;
+  font-weight: normal;
+}
+button.btn:hover, .btn:hover{
+  color: #fff;
+  border: 1px solid #16a085;
+}
 
 
 .photo{
+  width: 100%;
   display: inline-block;
   margin:  5px;
   padding: 10px;
@@ -71,12 +127,13 @@ h2,.default-corlor{
   font-weight: 200;
 }
 .photo img{
+ /* width: 100px; */
  height: 100px;
 }
 .btn{
   color: #fff;
-  background-color: #07c160;
-  border: 1px solid #07c160;
+  background-color: #16a085;
+  border: 1px solid #16a085;
   position: relative;
   display: inline-block;
   box-sizing: border-box;
@@ -90,7 +147,7 @@ h2,.default-corlor{
   transition: opacity 0.2s;
   -webkit-appearance: none;
   -webkit-text-size-adjust: 100%;
-  padding: 10px 20px;
+  padding: 5px 10px;
 }
 input[type="file"] {
   -webkit-appearance: initial;
@@ -125,7 +182,6 @@ input[type="file"] {
 }
 /* logo字体样式 */
 .text{
- 
   background-image: -webkit-linear-gradient(left,blue,#66ffff 10%,#cc00ff 20%,#CC00CC 30%, #CCCCFF 40%, #00FFFF 50%,#CCCCFF 60%,#CC00CC 70%,#CC00FF 80%,#66FFFF 90%,blue 100%);
   -webkit-text-fill-color: transparent;/* 将字体设置成透明色 */
   -webkit-background-clip: text;/* 裁剪背景图，使文字作为裁剪区域向外裁剪 */
@@ -173,3 +229,57 @@ input[type="file"] {
     /* #menu   .bottom:before,.bottom:after{content:''}
     #menu  .bottom:before{color:rgb(40,80,120);text-shadow:0 0 1px currentColor,-1px -1px 1px #003,0 -1px 1px #003,1px -1px 1px #003,1px 0 1px #003,1px 1px 1px #003,0 1px 1px #003,-1px 1px 1px #003,-1px 0 1px #003}
     #menu  .bottom:after{color:rgba(40,80,120,.1);text-shadow:1px -1px 1px rgba(40,80,120,.8),-1px 1px 1px rgba(255,255,255,.8)} */
+/* 登录 */
+.login-main-form{
+  margin-top: 20px;
+}
+.login-main h2{
+
+}
+.login-main p{
+  margin-left: 20px;
+  color: #71777c;
+  font-size: 16px;
+}
+.login-main p:nth-of-type(2), .login-main p:nth-of-type(3){
+  margin-top: 20px;
+ }
+ .login-main .btn{
+   padding: 8px 15px;
+ }
+ /* 注册 */
+ .register-main-form{
+  margin-top: 20px;
+}
+.register-main h2{
+ /* font-weight: normal; */
+}
+.register-main p{
+  margin-left: 20px;
+  color: #71777c;
+  font-size: 16px;
+}
+.register-main p:nth-of-type(2), .register-main p:nth-of-type(3),
+.register-main p:nth-of-type(4), .register-main p:nth-of-type(4), .register-main p:nth-of-type(5)
+{
+  margin-top: 20px;
+ }
+ .register-main .btn{
+  padding: 8px 15px;
+}
+/* upoad */
+
+.upload-main p{
+  margin-left: 20px;
+  color: #71777c;
+  font-size: 16px;
+}
+.upload-main p:nth-of-type(1), .upload-main p:nth-of-type(2), .upload-main p:nth-of-type(3){
+  margin-top: 20px;
+ }
+ .upload-main .btn{
+  padding: 8px 15px;
+  font-weight: normal;
+}
+
+

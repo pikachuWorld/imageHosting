@@ -18,10 +18,12 @@ dist/
 .history/
 .rn_temp/
 node_modules/
+public/photos/
 .DS_Store
 .idea/**
 /yarn-error.log
 uploadPhoto/node_modules/
 uploadPhoto/.history/
 uploadPhoto/public/photos/
+uploadPhoto/.DS_Store
 

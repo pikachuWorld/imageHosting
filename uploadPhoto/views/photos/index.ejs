@@ -2,32 +2,73 @@
 <html>
   <head>
     <title><%= title %></title>
+    <link rel='stylesheet' href='/plug/particleground/css/style.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
    
   </head>
-  <body>
+  <body >
     <%- include('../menu') %>
-    <h2><%= title %></h2>
-    <!-- <p>express stock photo application</p> -->
-    <div id="photos">
+    <div id="particles" class="particles"> </div>
+    <div class="main">
+      <h2><%= title %></h2>
+      <!-- <p>express stock photo application</p> -->
+      <div id="photos" class="photos-list">
         <% photos.forEach(function(photo) { %>
-            <div  class="photo">
-                <h2><%=photo.name%></h2>
-                <img src="/photos/<%=photo.path%>" alt="图片">
-                <p class="default-corlor">图片链接： "<span class="getPhotoHref"></span><span class="getPhoto">/photos/<%=photo.path%></span> "</p>
+          <div  class="photo">
+            <h2><%=photo.name%></h2>
+            <div class="photo-info">
+              <img class="photo-info-img" src="/photos/<%=photo.path%>" alt="图片">
+              <div class="photo-info-link default-corlor">
+                <span class="photo-info-link-name">图片链接：</span> 
+                <div class="photo-info-link-path"> 
+                  <span id="copyVal">
+                    "<span class="getPhotoHref"></span><span class="getPhoto">/photos/<%=photo.path%></span> "
+                  </span>
+                  <button class="btn photo-upload" data-clipboard-target="#copyVal">复制</button>
+                </div>
+                
+                <!-- <p class="photo-info-link-copy">
+                  <button class="btn photo-upload">复制</button>
+                </p> -->
+              </div>
+             
+            
             </div>
+           
+          </div>
         <% }) %>
+      </div>
     </div>
+    <!-- <script type='text/javascript' src='js/jquery-1.11.1.min.js'></script> -->
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script type='text/javascript' src='/plug/particleground/jquery.particleground.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
     <script>
       $(document).ready(function(){
         let host = window.location.host
         let protocol= window.location.protocol
-        console.log(111, protocol, host)
-        // $('.getPhotoHref').css("background-color","yellow");
         $('.getPhotoHref').text(protocol+'//'+ host);
         //jquery获取当前页面的URL信息
         //https://www.cnblogs.com/hongmaju/p/5510988.html
+        //背景
+        $('#particles').particleground({
+          dotColor: '#5cbdaa',
+          lineColor: '#5cbdaa'
+        });
+        //
+
+        var clipboard = new ClipboardJS('.btn');
+       
+        clipboard.on('success', function(e) {
+          alert('复制成功')
+          e.clearSelection();
+        });
+
+        clipboard.on('error', function(e) {
+          console.error('Action:', e.action);
+          console.error('Trigger:', e.trigger);
+        });
+
       });
     </script>
   </body>

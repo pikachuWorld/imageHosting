@@ -2,13 +2,17 @@
 <html>
   <head>
     <title><%= title %></title>
+    <link rel='stylesheet' href='/plug/particleground/css/style.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <% include menu %>
-    <h2>登录</h2>
+    
      <% include messages %>
-    <form action='/login' method='post'>
+     <div id="particles" class="particles"> </div>
+     <div class="login-main">
+      <h2>登录</h2>
+      <form action='/login' method='post' class="login-main-form">
         <p>
             <label class="" for="">姓名:</label>
             <input type="text" name='name' class="photo-name" placeholder='请输入用户名'/>
@@ -21,5 +25,18 @@
             <input type="submit"   class="btn photo-upload"  value='登录'/>
         </p>
     </form>
+     </div>
+   
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script type='text/javascript' src='/plug/particleground/jquery.particleground.min.js'></script>
+    <script>
+      $(document).ready(function(){
+       //背景
+        $('#particles').particleground({
+          dotColor: '#5cbdaa',
+          lineColor: '#5cbdaa'
+        });
+      });
+    </script>
   </body>
 </html>

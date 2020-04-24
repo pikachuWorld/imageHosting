@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+
    
     <% if (locals.user) { %>
       <div id="menu">
         <div class="left text bottom">
-          <small>Sophia</small>今天也要加油鸭
+          <small>Today</small>也要加油鸭
            
         </div>
         <div class="right">
           <input type="hidden" id="resdisName" value='<%= user.name %>' />
           <input type="hidden" id="redisId" value='<%= user.id %>' />
-          <span class='name'> --欢迎 <%= user.name %> 驾到-</span>
+          <span class='name'> -恭候小主 <%= user.name %> 驾到</span>
             <!-- <a href="/post">待开发</a> -->
             <a href="/" class="btn-link">图片列表</a>
             <a href="/upload" class="btn-link">上传图库</a>
@@ -26,8 +20,8 @@
       </div>
     <% } else { %>
       <div id="menu">
-        <div class="left">
-          <small>金</small>点点
+        <div class="left  text bottom">
+          <small>Today</small>也要加油鸭
         </div>
         <div class="right">
           <a href="/login">登录</a>
@@ -37,5 +31,3 @@
       </div>
     <% } %>
 
-  </body>
-</html>
