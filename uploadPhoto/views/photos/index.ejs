@@ -43,6 +43,8 @@
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script type='text/javascript' src='/plug/particleground/jquery.particleground.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script type='text/javascript' src='/plug/particleground/parGround.js'></script>
+    
     <script>
       $(document).ready(function(){
         let host = window.location.host
@@ -50,13 +52,7 @@
         $('.getPhotoHref').text(protocol+'//'+ host);
         //jquery获取当前页面的URL信息
         //https://www.cnblogs.com/hongmaju/p/5510988.html
-        //背景
-        $('#particles').particleground({
-          dotColor: '#5cbdaa',
-          lineColor: '#5cbdaa'
-        });
-        //
-
+       
         var clipboard = new ClipboardJS('.btn');
        
         clipboard.on('success', function(e) {
