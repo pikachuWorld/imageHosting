@@ -127,7 +127,7 @@ button.btn:hover, .btn:hover{
   font-weight: 200;
 }
 .photo img{
- /* width: 100px; */
+ max-width: 100px;
  height: 100px;
 }
 .btn{
