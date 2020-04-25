@@ -79,8 +79,11 @@
      * Style the canvas
      */
     function styleCanvas() {
+       console.log('--canvas.height----', $el,'--' ,$el.height(), '---', option.height)
       canvas.width = $el.width();;
       canvas.height = $el.height();;
+      // canvas.height = $el.height() < option.height ? option.height:  $el.height();
+
       ctx.fillStyle = options.dotColor;
       ctx.strokeStyle = options.lineColor;
       ctx.lineWidth = options.lineWidth;
@@ -379,6 +382,7 @@
     proximity: 100, // How close two dots need to be before they join
     parallax: true,
     parallaxMultiplier: 5, // The lower the number, the more extreme the parallax effect
+    height: 500,
     onInit: function() {},
     onDestroy: function() {}
   };
