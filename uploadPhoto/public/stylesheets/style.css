@@ -28,7 +28,7 @@ h2,.default-corlor{
   height: 100%; 
   /* background:#ff0000; */
 }
-.register-main p.error{
+.register-main p.error, .login-main p.error{
   color: red;
 }
 .error-tip{
@@ -209,6 +209,9 @@ input[type="file"] {
 .error{
   color: red;
 }
+p.error{
+  color: red;
+}
 /* logo字体样式 */
 .text{
   background-image: -webkit-linear-gradient(left,blue,#66ffff 10%,#cc00ff 20%,#CC00CC 30%, #CCCCFF 40%, #00FFFF 50%,#CCCCFF 60%,#CC00CC 70%,#CC00FF 80%,#66FFFF 90%,blue 100%);
@@ -270,6 +273,7 @@ input[type="file"] {
   color: #71777c;
   font-size: 16px;
 }
+
 .login-main p:nth-of-type(2), .login-main p:nth-of-type(3){
   margin-top: 20px;
  }
