@@ -7,31 +7,38 @@
   </head>
   <body>
      <% include menu %>
-     <% include messages %>
+     
      <div id="particles" class="particles"> </div>
      <div class="register-main">
       <h2>注册</h2>
-      <form action='/register' method='post'  class="register-main-form">
+      <% include messages %>
+      <form action='/register'  id="uploadForm"  method='post'  class="register-main-form">
+        
         <p>
-            <label class="" for="">姓名:</label>
-            <input type="text" name='name' class="photo-name" placeholder='请输入用户名'/>
+            <label class="" for=""> <span class="red">*</span>姓名:</label>
+            <input style="display:none"><!-- for disable autocomplete on chrome -->
+            <input type="text" name='name'  id="userName" autocomplete="off" class="photo-name validate" txt="请输入用户名" placeholder='请输入用户名'/>
+            <span id="nameError" class="error-tip red" ></span>
         </p>
         <p>
-            <label class="" for="">密码:</label>
-            <input type="password" name='pass' class="photo-name" placeholder='请输入密码' />
+            <label class="" for=""> <span class="red">*</span>密码:</label>
+            <input type="password" name='pass' id="userPass" autocomplete="new-password" class="photo-name validate" txt='请输入密码' placeholder='请输入密码' />
+            <span id="passError" class="error-tip red"></span>
         </p>
         <p>
             <label class="" for="">手机:</label>
-            <input type="text" name='iphone' class="photo-name" placeholder='请输入手机号' />
+            <input type="text" name='iphone' class="photo-name"  txt='请输入手机号' placeholder='请输入手机号' />
         </p>
         <p>
           <label class="" for="">邮箱:</label>
-          <input type="text" name='email' class="photo-name" placeholder='请输邮箱' />
+          <input type="text" name='email' class="photo-name" txt='请输邮箱' placeholder='请输邮箱' />
         </p>
         <p> 
-            <input type="submit"   class="btn photo-upload" value='注册'/>
+            <input type="submit" id="uploadSubmit"  class="btn photo-upload" value='注册'/>
+           
         </p>
     </form>
+    <!-- <iframe name="targetIfr" style="display:none"></iframe>  -->
      </div>
    
      <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>

@@ -12,17 +12,19 @@
      <div id="particles" class="particles"> </div>
      <div class="login-main">
       <h2>登录</h2>
-      <form action='/login' method='post' class="login-main-form">
+      <form action='/login' method='post' id="uploadForm"  class="login-main-form">
         <p>
-            <label class="" for="">姓名:</label>
-            <input type="text" name='name' class="photo-name" placeholder='请输入用户名'/>
+            <label class="" for=""> <span class="red">*</span>姓名:</label>
+            <input type="text" name='name' class="photo-name validate" txt="请输入用户名" placeholder='请输入用户名'/>
+            <span id="nameError" class="error-tip red" ></span>
         </p>
         <p>
-            <label class="" for="">密码:</label>
-            <input type="password" name='pass' class="photo-name" placeholder='请输入密码' />
+            <label class="" for=""> <span class="red">*</span>密码:</label>
+            <input type="password" name='pass' class="photo-name validate" txt="请输入密码"  placeholder='请输入密码' />
+            <span id="passError" class="error-tip red" ></span>
         </p>
         <p>
-            <input type="submit"   class="btn photo-upload"  value='登录'/>
+            <input type="submit"   class="btn photo-upload"  id="uploadSubmit" value='登录'/>
         </p>
     </form>
      </div>

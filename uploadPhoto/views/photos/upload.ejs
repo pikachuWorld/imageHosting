@@ -10,10 +10,18 @@
     <div id="particles" class="particles"> </div>
     <div class="upload-main">
       <h2><%= title %></h2>
-      <form class="upload-main-form" method='post' enctype="multipart/form-data">
-        <p> <input type="text" class="photo-name" name='photoName' placeholder="name" /></p>
-        <p><input type="file" class="photo-image" name='photoImage' /></p>
-        <p><input type="submit"  class="btn photo-upload" value="Upload" /></p>
+      <form class="upload-main-form" id="uploadForm" method='post' enctype="multipart/form-data">
+        <p> 
+          <label class="" for=""> <span class="red">*</span>文件名:</label>
+          <input type="text" class="photo-name validate" name='photoName' txt="请输入文件名" placeholder="请输入文件名" />
+          <span id="photoNameError" class="error-tip red" ></span>
+        </p>
+        <p>
+          <label class="" for=""> <span class="red">*</span>上传图片:</label>
+          <input type="file" class="photo-image validate" txt="请上传图片" name='photoImage' />
+          <span id="photoImageError" class="error-tip red" ></span>
+        </p>
+        <p><input type="submit" id="uploadSubmit"  class="btn photo-upload" value="上传" /></p>
     </form>
     </div>
    

@@ -20,10 +20,19 @@ a {
 h2,.default-corlor{
   color: #71777c;
 }
+.red{
+  color: red;
+}
 .container{
  
   height: 100%; 
   /* background:#ff0000; */
+}
+.register-main p.error{
+  color: red;
+}
+.error-tip{
+  font-size: 14px;
 }
 /*  head*/
 #menu{
@@ -193,6 +202,9 @@ input[type="file"] {
   -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
   -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.photo-image{
+ margin-left: 5px;
 }
 .error{
   color: red;
