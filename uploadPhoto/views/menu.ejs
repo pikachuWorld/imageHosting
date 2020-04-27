@@ -1,33 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>menu</title>
+  <script>
+    console.log('---百度统计------')
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f7cf14c0db8ed1632df95027a76b9cee";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    
+</head>
+<body>
+  <% if (locals.user) { %>
+    <div id="menu">
+      <div class="left text bottom">
+        <small>Today</small>也要加油鸭
+         
+      </div>
+      <div class="right">
+        <input type="hidden" id="resdisName" value='<%= user.name %>' />
+        <input type="hidden" id="redisId" value='<%= user.id %>' />
+        <span class='name'> -恭候小主 <%= user.name %> 驾到</span>
+          <!-- <a href="/post">待开发</a> -->
+          <a href="/" class="btn-link">图片列表</a>
+          <a href="/upload" class="btn-link">上传图库</a>
+          <a href="/logout">退出</a>
+      </div>
+      <!-- <span><  %= user %></span>  -->
+     
+    </div>
+  <% } else { %>
+    <div id="menu">
+      <div class="left  text bottom">
+        <small>Today</small>也要加油鸭
+      </div>
+      <div class="right">
+        <a href="/login">登录</a>
+        <a href="/register">注册</a>
+      </div>
+      
+    </div>
+  <% } %>
 
+
+</body>
+</html>
    
-    <% if (locals.user) { %>
-      <div id="menu">
-        <div class="left text bottom">
-          <small>Today</small>也要加油鸭
-           
-        </div>
-        <div class="right">
-          <input type="hidden" id="resdisName" value='<%= user.name %>' />
-          <input type="hidden" id="redisId" value='<%= user.id %>' />
-          <span class='name'> -恭候小主 <%= user.name %> 驾到</span>
-            <!-- <a href="/post">待开发</a> -->
-            <a href="/" class="btn-link">图片列表</a>
-            <a href="/upload" class="btn-link">上传图库</a>
-            <a href="/logout">退出</a>
-        </div>
-        <!-- <span><  %= user %></span>  -->
-       
-      </div>
-    <% } else { %>
-      <div id="menu">
-        <div class="left  text bottom">
-          <small>Today</small>也要加油鸭
-        </div>
-        <div class="right">
-          <a href="/login">登录</a>
-          <a href="/register">注册</a>
-        </div>
-        
-      </div>
-    <% } %>
-
+   
