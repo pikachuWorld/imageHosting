@@ -41,13 +41,14 @@ exports.submit = function(dir){
    return function(req, res, next){
     var userIP = req.headers['x-forwarded-for']  || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress;
     
-    console.log('----88IP----->, ',  userIP,'*******222---图片提交', req.user, req.user.name, req.user.id)
+    console.log('----88999IP----->, ', req.body )
 
         if(!req.user){
             res.redirect('/login');
         } else {
             var img = req.files.photoImage;
             var name = req.body.photoName || img.name;
+            var time = req.body.uploadTime
             var path = join(dir, img.name);
             fs.rename(img.path, path, function(err){
                 if(err) return next(err);
@@ -56,7 +57,8 @@ exports.submit = function(dir){
                     path: img.name,
                     userName: req.user.name,
                     userId: req.user.id,
-                    userIp: userIP
+                    userIp: userIP,
+                    time: time
                 }, function(err){
                     if(err) return next(err);
                     res.redirect('/')

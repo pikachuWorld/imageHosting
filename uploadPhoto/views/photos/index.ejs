@@ -16,7 +16,17 @@
         <div id="photos" class="photos-list">
           <% photos.forEach(function(photo, key) { %>
             <div  class="photo">
-              <h2><%=photo.name%></h2>
+              <h2>
+                <%=photo.name%> 
+                <% if (photo.userName) { %>
+                  <span class="photo-author">【上传者：<%=photo.userName%>
+                    <% if (photo.time) { %>
+                    <span >上传时间：<%=photo.time%></span>
+                    <% } %>
+                    】  
+                  </span>
+                <% } %>
+              </h2>
               <div class="photo-info">
                 <img class="photo-info-img" src="/photos/<%=photo.path%>" alt="图片">
                 <div class="photo-info-link default-corlor">

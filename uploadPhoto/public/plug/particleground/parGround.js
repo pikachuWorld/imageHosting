@@ -55,9 +55,9 @@ $(document).ready(function(){
   //  $('#uploadForm').submit(function(e){
   //    e.preventDefault();
   //     console.log('---->', valid())
-  //     // if(valid()) {
-  //     //   $('#uploadForm').submit()
-  //     // }
+  //     if(valid()) {
+  //       $('#uploadForm').submit()
+  //     }
       
   //  })
   $('#uploadSubmit').click(function (e) { 
@@ -69,8 +69,10 @@ $(document).ready(function(){
     }
    
   });
-  
-
+  var time = new Date();
+  uploadTime = time.getFullYear()+ "/"+(time.getMonth()+1)+"/"+time.getDate()+" "+time.getHours()+":"+time.getMinutes();
+  console.log('---->time', uploadTime);
+  $("#uploadTime").val(uploadTime)
 
 
 });

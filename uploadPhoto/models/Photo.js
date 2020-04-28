@@ -6,5 +6,6 @@ var schema = new mongoose.Schema({
      userName: String,
      userId: Number,
      userIp: String,
+     time: String
 });
 module.exports = mongoose.model('Photo', schema);
