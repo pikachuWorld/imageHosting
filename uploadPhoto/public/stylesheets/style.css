@@ -86,12 +86,14 @@ h2,.default-corlor{
   font-size: 24px;
   margin-top: 20px;
   font-weight: normal;
+  box-sizing: border-box;
 }
 
 /* 图片上传--- */
 .copy-link{
-  max-width: 500px;
-  /* display: inline-block; */
+  max-width: 350px;
+
+  display: inline-block;
   overflow-x: scroll;
   background-color: #f4f5f5;
   border: 1px solid #e8ebeb;
@@ -100,7 +102,8 @@ h2,.default-corlor{
 }
 .photos-list{
   margin-top: 20px;
-  width: 70%;
+  width: 100%;
+  box-sizing: border-box;
 
 }
 
@@ -117,6 +120,16 @@ h2,.default-corlor{
   font-size: 14px;
   margin-left: 10px;
 
+}
+.photo-info-link-path{
+ width: 100%;
+ box-sizing: border-box;
+ display: flex;
+ flex-direction: column;
+}
+.photo-info-link-path button.btn{
+  width: 100px;
+  margin-top: 10px;
 }
 .photo-info-link-path, .photo-info-link-path p{
   font-size: 14px;
@@ -137,7 +150,7 @@ button.btn:hover, .btn:hover{
 
 
 .photo{
-  width: 100%;
+  width: 45%;
   display: inline-block;
   margin:  5px;
   padding: 10px;
@@ -153,7 +166,8 @@ button.btn:hover, .btn:hover{
   font-weight: 200;
 }
 .photo img{
- max-width: 160px;
+ /* max-width: 160px; */
+ width: 100px;
  height: 100px;
 }
 .btn{
