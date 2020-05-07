@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/plug/particleground/css/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <% include menu %>
+    <div id="particles" class="particles"> </div>
+     <div class="login-main post-main">
+      <h2>小太阳涂鸦墙</h2>
+       <P>快快留下你的痕迹吧</P>
+      <% include messages %>
+      <form action='/post' method='post' id="uploadForm"  class="login-main-form">
+        <p>
+            <label class="" for=""> <span class="red">*</span>标题:</label>
+            <input type="text" name='msgTitle' class="photo-name validate" txt="请输入标题" placeholder='title'/>
+            <span id="msgTitleError" class="error-tip red" ></span>
+        </p>
+        <p>
+            <label class="" for=""> <span class="red">*</span>消息主题:</label>
+            <textarea  rows="10" cols="100" name='msgBody' class="photo-name validate post-body" txt="请输入消息主题"  placeholder='body' ></textarea>
+            <span id="msgBody" class="error-tip red" ></span>
+        </p>
+        <p>
+            <input type="submit"   class="btn photo-upload"  id="uploadSubmit" value='提交'/>
+        </p>
+    </form>
+     </div>
+   
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script type='text/javascript' src='/plug/particleground/jquery.particleground.min.js'></script>
+    <script type='text/javascript' src='/plug/particleground/parGround.js'></script>
+    
+  </body>
+</html>

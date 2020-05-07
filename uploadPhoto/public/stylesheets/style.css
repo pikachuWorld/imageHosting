@@ -66,10 +66,13 @@ h2,.default-corlor{
   color: #71777c;
   font-size: 16px;
 }
-#menu a:hover{
+#menu a:hover, #menu a:active{
   color: #16a085;
 }
-
+/* #menu a:visited{
+  color: #16a085;
+  text-decoration: underline;
+} */
 /* #photos{
   background-color: #fff;
 } */
@@ -334,4 +337,20 @@ p.error{
   font-weight: normal;
 }
 
-
+/* 消息列表 */
+.entry{
+  margin-top: 20px;
+}
+.entry h3{
+    color: #71777c;
+    font-size: 20px;
+}
+.postList-main{
+  width: 90%;
+}
+.postList-main p:nth-of-type(2){
+  margin-top: 5px;
+}
+.post-body {
+  width: 400px;
+}

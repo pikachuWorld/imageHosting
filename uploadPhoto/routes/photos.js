@@ -36,14 +36,9 @@ exports.form = function(req, res){
     })
 }
 exports.submit = function(dir){
-  
-    
-   return function(req, res, next){
+  return function(req, res, next){
     var userIP = req.headers['x-forwarded-for']  || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress;
-    
-    console.log('----88999IP----->, ', req.body )
-
-        if(!req.user){
+    if(!req.user){
             res.redirect('/login');
         } else {
             var img = req.files.photoImage;

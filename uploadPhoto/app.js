@@ -15,7 +15,7 @@ var usersRouter = require('./routes/users');
 var user = require('./lib/middleware/user');
 var messages = require('./lib/messages');
 var login = require('./routes/login')
-
+let entries = require('./routes/entries')
 var app = express();
 
 // view engine setup
@@ -36,15 +36,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(user)
 app.use(messages)
 
-
-
-
 app.use(multer({dest: app.get('photos')}));
 // console.log('***111', photos)
-app.get('/', photos.list);
+app.get('/list', photos.list);
 app.get('/upload', photos.form);
 app.post('/upload', photos.submit(app.get('photos')));
-console.log('*****222', register)
+
 
 app.get('/register', register.form);
 app.post('/register', register.submit);
@@ -52,6 +49,11 @@ app.post('/register', register.submit);
 app.get('/login',  login.form);
 app.post('/login', login.submit);
 app.get('/logout', login.logout);
+//消息列表
+console.log('***entries--', entries)
+app.get('/', entries.list)
+app.get('/post', entries.form);
+app.post('/post', entries.submit);
 
 // // app.use('/', indexRouter);
 app.use('/users', usersRouter); //用路由

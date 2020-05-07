@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/plug/particleground/css/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+     <% include menu %>
+     
+     <div id="particles" class="particles"> </div>
+     <div class="register-main postList-main">
+      <h2>小太阳涂鸦墙</h2>
+      <% entries.forEach(function(entry) { %>
+        <div class='entry'>
+            <h3 class="entry-title"> 
+             <%= entry.title%>
+              <!-- <p class=""> 来自：  <%= entry.username%>  </p> -->
+            </h3>
+            <p>  <%= entry.body%>  </p>
+            <p> --post by  <%= entry.username%>       <%= entry.startTime%>  </p>
+        </div>
+      <% }) %>
+     </div>
+     
+     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+     <script type='text/javascript' src='/plug/particleground/jquery.particleground.min.js'></script>
+     <script type='text/javascript' src='/plug/particleground/parGround.js'></script>
+    
+  </body>
+</html>
