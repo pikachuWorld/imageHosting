@@ -31,8 +31,10 @@ exports.list = function(req, res, next){
 }
 //连上数据库
 exports.form = function(req, res){
+  
     res.render('photos/upload', {
         title: '图片上传'
+        
     })
 }
 exports.submit = function(dir){
