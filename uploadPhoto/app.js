@@ -18,6 +18,7 @@ var user = require('./lib/middleware/user');
 var messages = require('./lib/messages');
 var login = require('./routes/login')
 let entries = require('./routes/entries')
+let validate = require('./lib/middleware/validate')
 var app = express();
 
 var csrfProtection = csrf({ cookie: true })
@@ -66,7 +67,7 @@ app.get('/logout', login.logout);
 // console.log('***entries--', entries)
 app.get('/',  entries.list)
 app.get('/post', entries.form);
-app.post('/post',  entries.submit);
+app.post('/post', validate.required('msgTitle'), validate.lengthAbove('msgTitle', 4), entries.submit);
 
 // // app.use('/', indexRouter);
 app.use('/users', usersRouter); //用路由
