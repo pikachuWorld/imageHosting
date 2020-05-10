@@ -2,7 +2,7 @@ let Entry = require('../lib/entry');
 exports.list = function(req, res, next){
     let page = req.page;
     // Entry.getRange(0, -1, function(err, entries){
-    Entry.getRange(page.from, page.to, function(err, entries){
+    Entry.getRange(0, -1, function(err, entries){
         if (err) return next(err);
         res.render('entries', {
             title: 'Entries',
