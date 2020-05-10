@@ -21,8 +21,9 @@
             <p> --post by  <%= entry.username%>       <%= entry.startTime%>  </p>
         </div>
       <% }) %>
+
      </div>
-     
+     <% include pager %>
      <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
      <script type='text/javascript' src='/plug/particleground/jquery.particleground.min.js'></script>
      <script type='text/javascript' src='/plug/particleground/parGround.js'></script>

@@ -19,6 +19,8 @@ var messages = require('./lib/messages');
 var login = require('./routes/login')
 let entries = require('./routes/entries')
 let validate = require('./lib/middleware/validate')
+// let page = require('./lib/middleware/page');
+// let Entry = require('./lib/entry')
 var app = express();
 
 var csrfProtection = csrf({ cookie: true })
@@ -64,7 +66,8 @@ app.get('/login',  login.form);
 app.post('/login', login.submit);
 app.get('/logout', login.logout);
 //消息列表
-// console.log('***entries--', entries)
+//  console.log('***99999****', page)
+// app.get('/:page?', page(Entry.count, 5), entries.list)
 app.get('/',  entries.list)
 app.get('/post', entries.form);
 app.post('/post', validate.required('msgTitle'), validate.lengthAbove('msgTitle', 4), entries.submit);

@@ -1,6 +1,8 @@
 let Entry = require('../lib/entry');
 exports.list = function(req, res, next){
-    Entry.getRange(0, -1, function(err, entries){
+    let page = req.page;
+    // Entry.getRange(0, -1, function(err, entries){
+    Entry.getRange(page.from, page.to, function(err, entries){
         if (err) return next(err);
         res.render('entries', {
             title: 'Entries',
@@ -14,7 +16,7 @@ exports.form = function(req, res){
 
 exports.submit = function(req, res, next){
     let data = req.body
-     console.log(' 99999res.local--->', res.local,'---req.user.name---->', req.user,   '####--data', data.title, 'req.body--->', req.body)
+    //  console.log(' 99999res.local--->', res.local,'---req.user.name---->', req.user,   '####--data', data.title, 'req.body--->', req.body)
     if(!data.msgTitle) {
         res.error("Title is required");
         res.redirect('back');
