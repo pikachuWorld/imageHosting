@@ -5,6 +5,7 @@ module.exports = function(fn, perpage){
             parseInt(req.param('page') || '1', 10),
             1
         ) - 1;
+        
         fn(function(err, total){
             if(err) return next(err);
             req.page = res.locals.page = {

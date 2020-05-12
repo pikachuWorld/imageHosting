@@ -17,10 +17,12 @@ var usersRouter = require('./routes/users');
 var user = require('./lib/middleware/user');
 var messages = require('./lib/messages');
 var login = require('./routes/login')
-let entries = require('./routes/entries')
+
 let validate = require('./lib/middleware/validate')
-// let page = require('./lib/middleware/page');
-// let Entry = require('./lib/entry')
+let page = require('./lib/middleware/page');
+let Entry = require('./lib/entry')
+
+let entries = require('./routes/entries')
 var app = express();
 
 var csrfProtection = csrf({ cookie: true })
@@ -54,7 +56,7 @@ app.use(user)
 app.use(messages)
 
 app.use(multer({dest: app.get('photos')}));
-console.log('--222333----csrfProtection-----',  csrfProtection)
+// console.log('--222333----csrfProtection-----',  csrfProtection)
 app.get('/list',  photos.list);
 app.get('/upload',  photos.form);
 app.post('/upload', photos.submit(app.get('photos')));
@@ -67,10 +69,11 @@ app.post('/login', login.submit);
 app.get('/logout', login.logout);
 //消息列表
 //  console.log('***99999****', page)
-// app.get('/:page?', page(Entry.count, 5), entries.list)
-app.get('/',  entries.list)
 app.get('/post', entries.form);
 app.post('/post', validate.required('msgTitle'), validate.lengthAbove('msgTitle', 4), entries.submit);
+
+app.get('/:page?', page(Entry.count, 5), entries.list)
+// app.get('/',  entries.list)
 
 // // app.use('/', indexRouter);
 app.use('/users', usersRouter); //用路由
@@ -85,7 +88,7 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
    console.log('----333err----->', err)
-  // if (err.code !== 'EBADCSRFTOKEN') return next(err)
+  if (err.code !== 'EBADCSRFTOKEN') return next(err)
   res.locals.message = err.message;
  
   res.locals.error = req.app.get('env') === 'development' ? err : {};

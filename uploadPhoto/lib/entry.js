@@ -10,6 +10,7 @@ function Entry(obj){
 
 Entry.prototype.save = function(fn){
     let entryJSON = JSON.stringify(this);
+    cons
     db.lpush(
         'entries',
         entryJSON,
@@ -21,6 +22,7 @@ Entry.prototype.save = function(fn){
 }
 
 Entry.getRange = function(from, to, fn) {
+    
     db.lrange('entries', from, to, function(err, items){
         // console.log('--lib--items--', items)
         if (err) return fn(err)
@@ -31,6 +33,7 @@ Entry.getRange = function(from, to, fn) {
         fn(null, entries);
     })
 }
+
 Entry.count = function(fn){
     db.llen('entries', fn);
 }
