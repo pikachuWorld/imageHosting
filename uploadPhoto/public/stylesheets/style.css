@@ -365,3 +365,8 @@ p.error{
 .pager-contain a{
   color: #16a085;
 }
+
+.page-count{
+  color: #16a085;
+  margin-left: 10px;
+}
