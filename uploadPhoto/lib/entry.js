@@ -10,7 +10,7 @@ function Entry(obj){
 
 Entry.prototype.save = function(fn){
     let entryJSON = JSON.stringify(this);
-    cons
+    
     db.lpush(
         'entries',
         entryJSON,
