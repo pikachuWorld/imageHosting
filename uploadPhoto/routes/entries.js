@@ -1,11 +1,22 @@
 let Entry = require('../lib/entry');
+// let isNaN = function(value) {
+//     var n = Number(value);
+//     return n !== n;
+// };
 exports.list = function(req, res, next){
     let page = req.page;
+   
+    let pageFrom =  isNaN(page.from) ?  0 : page.from;
+    let pageTo   =  isNaN(page.to) ?  -1 : page.to;
+    page.number = isNaN(page.number) ?  0 : page.number;
+
+    console.log('*****分页*******', pageFrom, '777---->',  pageTo)
     // Entry.getRange(0, -1, function(err, entries){
-    Entry.getRange(0, -1, function(err, entries){
+    Entry.getRange( pageFrom, pageTo, function(err, entries){
         if (err) return next(err);
+        console.log('****666**entries*****', entries)
         res.render('entries', {
-            title: 'Entries',
+            title: '首页',
             entries: entries,
         })
     })

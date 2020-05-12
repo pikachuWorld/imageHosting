@@ -1,14 +1,15 @@
-<div id='pager'>
+<div id='pager' class="pager-contain">
  <% if (page.count > 1) { %>
     <% if (page.number) { %>
-        <a id='prev' href='/<%= page.number %>'>  Prev </a>
+        <a id='prev' href='/<%= page.number %>'>  上一页 </a>
     <% } %>
     <% if (page.number < page.count -1 ) { %>
         <% if (page.number) { %> 
             &nbsp;&nbsp;
         <% } %>
-        <a id='next' href='/<%= page.number + 2 %>'>  Next </a>
+        <a id='next' href='/<%= page.number + 2 %>'>  下一页 </a>
     <% } %>
+    <span class="page-count">共 <%= page.count %>页</span>
   <% } %>
 
 </div>

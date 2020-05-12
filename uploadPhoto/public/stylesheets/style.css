@@ -354,3 +354,18 @@ p.error{
 .post-body {
   width: 400px;
 }
+
+/* pager-contain */
+.pager-contain{
+  margin-top: 20px;
+  font-size: 20px;
+  
+}
+.pager-contain a{
+  color: #16a085;
+}
+
+.page-count{
+  color: #16a085;
+  margin-left: 10px;
+}
