@@ -58,7 +58,7 @@ exports.submit = function(dir){
                     time: time
                 }, function(err){
                     if(err) return next(err);
-                    res.redirect('/')
+                    res.redirect('/list')
                 });
             });
         }
