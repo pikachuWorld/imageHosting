@@ -17,11 +17,11 @@ var usersRouter = require('./routes/users');
 var user = require('./lib/middleware/user');
 var messages = require('./lib/messages');
 var login = require('./routes/login')
-
+let User = require('./lib/user');
 let validate = require('./lib/middleware/validate')
 let page = require('./lib/middleware/page');
 let Entry = require('./lib/entry')
-
+let api = require('./routes/api') // new add
 let entries = require('./routes/entries')
 var app = express();
 
@@ -52,11 +52,43 @@ app.use(session({secret: 'anystringoftext', saveUninitialized: true, resave: tru
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
+
+console.log('----api----', api, '---User.authenticate---', User.authenticate)
+app.use('/api', function(req, res, next) {
+  let auth;
+  console.log('---req--user-', req.user)
+  console.log('---res--user-', res.locals)
+  if (req.headers.authorization) {
+    auth = new Buffer(req.headers.authorization.substring(6), 'base64').toString().split(':');
+  }
+  console.log('---auth---', auth)
+  //User.authenticate
+  // if (!auth || auth[0] !== 'taotao') {
+  if (!auth.length ) {
+    User.authenticate(auth[0], auth[1], function(err, user){
+      if(err) return next(err)
+      if(user){
+          // req.session.uid = user.id;
+          // res.redirect('/upload');
+      } else { 
+          // res.error("Sorry! 无效的凭证。");
+          // res.redirect('back');
+          res.statusCode = 401;
+          res.setHeader('WWW-Authenticate', 'Basic realm="MyRealmName"');
+          res.end('Unauthorized');
+      }
+  })
+  } else {
+      next();
+  }
+})
+
 app.use(user)
 app.use(messages)
 
 app.use(multer({dest: app.get('photos')}));
 // console.log('--222333----csrfProtection-----',  csrfProtection)
+
 app.get('/list',  photos.list);
 app.get('/upload',  photos.form);
 app.post('/upload', photos.submit(app.get('photos')));
@@ -75,9 +107,13 @@ app.post('/post', validate.required('msgTitle'), validate.lengthAbove('msgTitle'
 app.get('/:page?', page(Entry.count, 5), entries.list)
 // app.get('/',  entries.list)
 
+
 // // app.use('/', indexRouter);
 app.use('/users', usersRouter); //用路由
-
+// 创建一个公开的REST API
+app.get('/api/user/:id', api.user);
+// app.get('/api/entries/:page?', api.entries);
+// app.post('/api/entry', api.add)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -87,7 +123,7 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
-   console.log('----333err----->', err)
+  //  console.log('----333err----->', err)
   if (err.code !== 'EBADCSRFTOKEN') return next(err)
   res.locals.message = err.message;
  

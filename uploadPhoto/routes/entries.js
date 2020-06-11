@@ -10,11 +10,11 @@ exports.list = function(req, res, next){
     let pageTo   =  isNaN(page.to) ?  -1 : page.to;
     page.number = isNaN(page.number) ?  0 : page.number;
 
-    console.log('*****分页*******', pageFrom, '777---->',  pageTo)
+    // console.log('*****分页*******', pageFrom, '777---->',  pageTo)
     // Entry.getRange(0, -1, function(err, entries){
     Entry.getRange( pageFrom, pageTo, function(err, entries){
         if (err) return next(err);
-        console.log('****666**entries*****', entries)
+        // console.log('****666**entries*****', entries)
         res.render('entries', {
             title: '首页',
             entries: entries,
