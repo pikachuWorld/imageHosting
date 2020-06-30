@@ -24,7 +24,6 @@ $ npm install
 run the app:
 $ DEBUG=uploadphoto:* npm start 
 -->
-
-
+http://49.232.92.12:3000/
 
 
