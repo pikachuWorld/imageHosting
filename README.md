@@ -1,3 +1,4 @@
+
 # imageHosting
 # 做一个图片托管简单网站
 # 最出简单的没有连数据库的版本
@@ -25,5 +26,3 @@ run the app:
 $ DEBUG=uploadphoto:* npm start 
 -->
 http://49.232.92.12:3000/
-
-
