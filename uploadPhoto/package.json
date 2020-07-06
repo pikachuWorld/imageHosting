@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dev-start": "webpack --config webpack.config.js",
+    "build": "webpack"
   },
   "dependencies": {
     "bcrypt": "^4.0.1",
@@ -15,10 +17,26 @@
     "express": "~4.16.1",
     "express-session": "^1.17.1",
     "http-errors": "~1.6.3",
+    "lodash": "^4.17.15",
     "method-override": "^3.0.0",
     "mongoose": "^5.9.7",
     "morgan": "~1.9.1",
     "multer": "^0.1.8",
     "redis": "^3.0.2"
-  }
+  },
+  "devDependencies": {
+    "css-loader": "^3.6.0",
+    "file-loader": "^6.0.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
