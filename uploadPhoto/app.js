@@ -52,16 +52,18 @@ app.use(session({secret: 'anystringoftext', saveUninitialized: true, resave: tru
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
+// process.env.PORT
+process.env.PORT = '80'
 
-console.log('----api----', api, '---User.authenticate---', User.authenticate)
+console.log( '*****', process.env, '***process---->', process.env.PORT)
+// console.log('----api----', api, '---User.authenticate---', User.authenticate)
 app.use('/api', function(req, res, next) {
   let auth;
-  console.log('---req--user-', req.user)
-  console.log('---res--user-', res.locals)
+ 
   if (req.headers.authorization) {
     auth = new Buffer(req.headers.authorization.substring(6), 'base64').toString().split(':');
   }
-  console.log('---auth---', auth)
+
   //User.authenticate
   // if (!auth || auth[0] !== 'taotao') {
   if (!auth.length ) {
