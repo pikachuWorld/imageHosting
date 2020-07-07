@@ -10,7 +10,7 @@
      
      <div id="particles" class="particles"> </div>
      <div class="register-main postList-main">
-      <h2>小太阳涂鸦墙</h2>
+      <h2>涂鸦墙列表</h2>
       <% entries.forEach(function(entry) { %>
         <div class='entry'>
             <h3 class="entry-title"> 
@@ -22,6 +22,7 @@
         </div>
       <% }) %>
       <% include pager %>
+      <% include footer %>
      </div>
      
      <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>

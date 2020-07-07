@@ -56,7 +56,9 @@ User.prototype.hashPassword = function(fn) {
 }
 //从redis中取得用户
 User.getByName = function(name, fn){
-    User.getId(name, function(err, id){
+    console.log('!!!!getByName', name)
+    User.getId(name, function(err, id){ //
+
         if(err) return fn(err);
         User.get(id, fn);
     })
@@ -74,6 +76,7 @@ User.get = function(id, fn){
 }
 //认证用户登录
 User.authenticate= function(name, pass ,fn){
+    console.log('@@@@@authenticate@@@', name, pass )
     User.getByName(name, function(err, user){
         if(err) return fn(err);
         if(!user.id) return fn()
