@@ -53,7 +53,7 @@ app.use(session({secret: 'anystringoftext', saveUninitialized: true, resave: tru
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 // process.env.PORT
-process.env.PORT = '80'
+process.env.PORT = '3000'
 
 console.log( '*****', process.env, '***process---->', process.env.PORT)
 // console.log('----api----', api, '---User.authenticate---', User.authenticate)
