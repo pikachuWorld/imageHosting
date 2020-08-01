@@ -55,7 +55,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // process.env.PORT
 process.env.PORT = '3000'
 
-console.log( '*****', process.env, '***process---->', process.env.PORT)
+// console.log( '*****', process.env, '***process---->', process.env.PORT)
 // console.log('----api----', api, '---User.authenticate---', User.authenticate)
 app.use('/api', function(req, res, next) {
   let auth;
@@ -92,9 +92,10 @@ app.use(multer({dest: app.get('photos')}));
 // console.log('--222333----csrfProtection-----',  csrfProtection)
 
 app.get('/list',  photos.list);
+app.get('/listpdf',  photos.listpdf);
 app.get('/upload',  photos.form);
 app.post('/upload', photos.submit(app.get('photos')));
-
+app.get('/photo/:id/download', photos.download(app.get('photos')))
 app.get('/register', register.form);
 app.post('/register',  register.submit);
 //csrfProtection, 

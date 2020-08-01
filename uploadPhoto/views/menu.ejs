@@ -26,10 +26,11 @@
       <div class="right">
         <input type="hidden" id="resdisName" value='<%= user.name %>' />
         <input type="hidden" id="redisId" value='<%= user.id %>' />
-        <span class='name'> -恭候小主 <%= user.name %> 驾到</span>
+        <span class='name'> - Hi, <%= user.name %> ! </span>
           <a href="/">首页</a>
           <a href="/post">涂鸦墙</a>
           <a href="/list" class="btn-link">图片列表</a>
+          <a href="/listpdf" class="btn-link">电子书下载</a>
           <a href="/upload" class="btn-link">上传图库</a>
           <a href="/logout">退出</a>
       </div>
@@ -49,7 +50,9 @@
     </div>
   <% } %>
 
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 
+  <script type='text/javascript' src='/plug/particleground/parGround.js'></script>
 </body>
 </html>
    

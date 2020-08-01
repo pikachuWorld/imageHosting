@@ -69,6 +69,10 @@ h2,.default-corlor{
 #menu a:hover, #menu a:active{
   color: #16a085;
 }
+#menu a.active{
+  color: #16a085;
+  border-bottom: 2px solid #16a085;
+}
 /* #menu a:visited{
   color: #16a085;
   text-decoration: underline;
@@ -130,9 +134,13 @@ h2,.default-corlor{
  display: flex;
  flex-direction: column;
 }
-.photo-info-link-path button.btn{
+.photo-info-link-path button.btn, .photo-info-link-path a.btn{
   width: 100px;
   margin-top: 10px;
+
+}
+.photo-info-link-path a.btn{
+  display: inline-block;
 }
 .photo-info-link-path, .photo-info-link-path p{
   font-size: 14px;
@@ -177,6 +185,7 @@ button.btn:hover, .btn:hover{
  /* max-width: 160px; */
  width: 100px;
  height: 100px;
+ display: block;
 }
 .btn{
   color: #fff;
@@ -197,6 +206,7 @@ button.btn:hover, .btn:hover{
   -webkit-text-size-adjust: 100%;
   padding: 5px 10px;
 }
+
 input[type="file"] {
   -webkit-appearance: initial;
   background-color: initial;
@@ -329,7 +339,8 @@ p.error{
   color: #71777c;
   font-size: 16px;
 }
-.upload-main p:nth-of-type(1), .upload-main p:nth-of-type(2), .upload-main p:nth-of-type(3){
+.upload-main p:nth-of-type(1), .upload-main p:nth-of-type(2), 
+.upload-main p:nth-of-type(3),.upload-main p:nth-of-type(4){
   margin-top: 20px;
  }
  .upload-main .btn{

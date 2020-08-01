@@ -73,7 +73,10 @@ $(document).ready(function(){
   uploadTime = time.getFullYear()+ "/"+(time.getMonth()+1)+"/"+time.getDate()+" "+time.getHours()+":"+time.getMinutes();
   console.log('---->time', uploadTime);
   $("#uploadTime").val(uploadTime)
-
+  $(".right a").each(function () {
+    if ($($(this))[0].href == String(window.location))
+        $(this).addClass('active');
+  });
 
 });
 

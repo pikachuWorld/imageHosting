@@ -29,6 +29,12 @@ exports.list = function(req, res, next){
 		res.render('photos', {title: '图片列表', photos: photos});
 	});
 }
+exports.listpdf = function(req, res, next){
+	Photo.find({}, function(err, photos){
+		if(err) return next(err);
+		res.render('photos/indexpdf', {title: '电子书下载', photos: photos});
+	});
+}
 //连上数据库
 exports.form = function(req, res){
   
@@ -39,6 +45,7 @@ exports.form = function(req, res){
 }
 exports.submit = function(dir){
   return function(req, res, next){
+      console.log('*******---photo-req.body--', req.body)
     var userIP = req.headers['x-forwarded-for']  || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress;
     if(!req.user){
             res.redirect('/login');
@@ -55,7 +62,8 @@ exports.submit = function(dir){
                     userName: req.user.name,
                     userId: req.user.id,
                     userIp: userIP,
-                    time: time
+                    time: time,
+                    fileType: req.body.fileType
                 }, function(err){
                     if(err) return next(err);
                     res.redirect('/list')
@@ -65,3 +73,15 @@ exports.submit = function(dir){
        
    };
 };
+//
+exports.download = function(dir){ //设定你要提供的文件所在目录
+    return function(req, res, next){ // 设定路由回调
+        let id = req.params.id;
+        Photo.findById(id, function(err, photo){ //加载照片记录
+            console.log('download path---', photo)
+            if(err) return next(err)
+            let path = join(dir, photo.path); //构造指向文件的绝对记录
+            res.sendfile(path)  //
+        })
+    }
+}

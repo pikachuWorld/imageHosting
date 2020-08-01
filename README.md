@@ -24,4 +24,4 @@ run the app:
 $ DEBUG=uploadphoto:* npm start 
 -->
 网站
-http://www.taolovesophia.com/
+https://www.taolovesophia.com/

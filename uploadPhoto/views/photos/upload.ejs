@@ -18,11 +18,20 @@
           <span id="photoNameError" class="error-tip red" ></span>
         </p>
         <p>
-          <label class="" for=""> <span class="red">*</span>上传图片:</label>
-          <input type="file" class="photo-image validate" txt="请上传图片" name='photoImage' />
+          <label class="" for=""> <span class="red">*</span>上传文件:</label>
+          <input type="file" multiple accept="image/*, .pdf" class="photo-image validate" txt="请上传图片" name='photoImage' />
           <span id="photoImageError" class="error-tip red" ></span>
         </p>
+        <p>
+          <label class="" for=""> <span class="red">*</span>文件类型:</label>
+          <input type="radio" id="contactImg"
+          name="fileType" value="1">
+          <label for="contactChoice1">图片</label>
 
+          <input type="radio" id="contactPDF"
+          name="fileType" value="2">
+          <label for="contactChoice2">电子书</label>
+        </p>
         <p>
           <input type="hidden"  name='uploadTime' id="uploadTime"   value="" />
           <input type="submit" id="uploadSubmit"  class="btn photo-upload" value="上传" />

@@ -15,7 +15,7 @@
         <!-- <p>express stock photo application</p> -->
         <div id="photos" class="photos-list">
           <% photos.forEach(function(photo, key) { %>
-            <% if (photo.fileType == 1) { %>
+            <% if (photo.fileType == 2) { %>
             <div  class="photo">
               <h2>
                 <%=photo.name%> 
@@ -39,7 +39,8 @@
                   <% } 
                   else{ %><img class="photo-info-img" src="/photos/<%=photo.path%>" alt="图片"> <%} %> -->
                  
-                    <img class="photo-info-img" src="/photos/<%=photo.path%>" alt="图片">
+                  <embed src="/photos/<%=photo.path%>" width="100" height="100" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
+                   
                   
                 </a>
                
@@ -49,8 +50,12 @@
                     <span id="copyVal<%= key%>" class="copy-link">
                       <span class="getPhotoHref"></span><span class="getPhoto">/photos/<%=photo.path%></span>
                     </span>
-                    <button id="btn-<%= key%>" class="btn photo-upload copy-btn" data-clipboard-target="#copyVal<%= key%>">复制</button>
-                  </div>
+                    <p>
+                        <button id="btn-<%= key%>" class="btn photo-upload copy-btn" data-clipboard-target="#copyVal<%= key%>">复制</button>
+                        <a class="btn photo-upload copy-btn"  href='/photo/<%= photo.id%>/download' target="_blank">下载</a>
+                    </p>
+                    
+                </div>
                   
                   <!-- <p class="photo-info-link-copy">
                     <button class="btn photo-upload">复制</button>
