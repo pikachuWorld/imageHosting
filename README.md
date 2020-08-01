@@ -1,5 +1,5 @@
 
-
+# hello
 做一个图片托管简单网站
 最出简单的没有连数据库的版本
 完整版的链接数据库版本20200330
@@ -13,7 +13,7 @@ node+express4搭建简单图床库
 之后再次安装：npm install -g express 
 
 好了，没问题了。-->
-<!-- 
+
 change directory:
 $ cd uploadPhoto
 
@@ -22,6 +22,6 @@ $ npm install
 
 run the app:
 $ DEBUG=uploadphoto:* npm start 
--->
+
 网站
 https://www.taolovesophia.com/
