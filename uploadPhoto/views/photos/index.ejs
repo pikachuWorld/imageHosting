@@ -30,7 +30,7 @@
               </h2>
               <div class="photo-info">
                 
-                <a href='/photo/<%= photo.id%>/download' target="_blank">
+                <a href='/photo/<%= photo.id%>/download' title="点击下载图片" target="_blank">
                   <!-- <% if (photo.fileType == 2) { %>
                     <embed src="/photos/<%=photo.path%>" width="100" height="100" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
                     <iframe src="/photos/<%=photo.path%>" height="100" width="100"></iframe>
@@ -46,11 +46,31 @@
                 <div class="photo-info-link default-corlor">
                   <span class="photo-info-link-name">图片链接：</span> 
                   <div class="photo-info-link-path"> 
-                    <span id="copyVal<%= key%>" class="copy-link">
-                      <span class="getPhotoHref"></span><span class="getPhoto">/photos/<%=photo.path%></span>
+                    <span id="copyVal<%= key%>" class="copy-link  http-link">
+                      <input type="hidden"  id="linkPhoto" value="/photos/<%=photo.path%>">
+                      <!-- <span class="getPhotoHref"></span><span class="getPhoto">/photos/<%=photo.path%></span> -->
+                      <span class="link-pic"> </span>
                     </span>
                     <button id="btn-<%= key%>" class="btn photo-upload copy-btn" data-clipboard-target="#copyVal<%= key%>">复制</button>
                   </div>
+                  <!-- <span class="photo-info-link-name">HTML代码：</span> 
+                  <div class="photo-info-link-path"> 
+                    <span id="copyVal<%= key%>2" class="copy-link ">
+                      <input type="text" class="link-input link-img" value=""> -->
+                      <!-- <img src="" alt="" class="link-img"> -->
+                    <!-- </code>
+                    </span>
+                    <button id="btn-<%= key%>2" class="btn photo-upload copy-btn" data-clipboard-target="#copyVal<%= key%>">复制</button>
+                  </div> -->
+
+                  <!-- <span class="photo-info-link-name">UBB代码：</span> 
+                  <div class="photo-info-link-path"> 
+                    <span id="copyVal<%= key%>3" class="copy-link">
+                      <input type="text" class="link-input  ubb-img" value="">
+                      
+                    </span>
+                    <button id="btn-<%= key%>3" class="btn photo-upload copy-btn" data-clipboard-target="#copyVal<%= key%>">复制</button>
+                  </div> -->
                   
                   <!-- <p class="photo-info-link-copy">
                     <button class="btn photo-upload">复制</button>
@@ -76,15 +96,21 @@
     
     <script>
       $(document).ready(function(){
-        let host = window.location.host
-        let protocol= window.location.protocol
+        let host = window.location.host;
+        let protocol= window.location.protocol;
+        // linkPhoto <img src="" alt="" class="link-img">
         $('.getPhotoHref').text(protocol+'//'+ host);
-       
+        let _linkPic = $('#linkPhoto').val()
+        let _totalLink = protocol+'//'+ host+_linkPic
+      //  console.log('----', _totalLink)
+       $('.link-pic').text(_totalLink);
+      //  $('.link-img').val(`<img src="${_totalLink}" alt="html链接" class="link-img">`);
+      
+      //  $('.ubb-img').val(`[img]${_totalLink}[/img]`);
         let clipboard = new ClipboardJS('.copy-btn');
        
         clipboard.on('success', function(e) {
           alert('复制成功')
-          
           e.clearSelection();
         });
         // console.log('---main---', $('.main').height())

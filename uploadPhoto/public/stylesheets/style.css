@@ -132,12 +132,20 @@ h2,.default-corlor{
  width: 100%;
  box-sizing: border-box;
  display: flex;
- flex-direction: column;
+ flex-direction: row;
 }
 .photo-info-link-path button.btn, .photo-info-link-path a.btn{
   width: 100px;
   margin-top: 10px;
 
+}
+.photo-info-link-path  .http-link{
+  width: 200px;;
+  height: 25px;
+}
+.photo-info-link-path  .link-input{
+  width: 200px;;
+  height: 25px;
 }
 .photo-info-link-path a.btn{
   display: inline-block;

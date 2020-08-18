@@ -44,33 +44,35 @@ exports.form = function(req, res){
     })
 }
 exports.submit = function(dir){
+    console.log('**111*dir***', dir)
   return function(req, res, next){
-      console.log('*******---photo-req.body--', req.body)
+      console.log('**222**req.body--', req.body, '**333**---', req.files)
     var userIP = req.headers['x-forwarded-for']  || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress;
     if(!req.user){
             res.redirect('/login');
-        } else {
-            var img = req.files.photoImage;
-            var name = req.body.photoName || img.name;
-            var time = req.body.uploadTime
-            var path = join(dir, img.name);
-            fs.rename(img.path, path, function(err){
+    } else {
+        var img = req.files.photoImage;
+        var name = req.body.photoName || img.name;
+        var time = req.body.uploadTime
+        var path = join(dir, img.name);
+        console.log('---path---', path)
+        fs.rename(img.path, path, function(err){
+            if(err) return next(err);
+            Photo.create({
+                name: name,
+                path: img.name,
+                userName: req.user.name,
+                userId: req.user.id,
+                userIp: userIP,
+                time: time,
+                fileType: req.body.fileType
+            }, function(err){
                 if(err) return next(err);
-                Photo.create({
-                    name: name,
-                    path: img.name,
-                    userName: req.user.name,
-                    userId: req.user.id,
-                    userIp: userIP,
-                    time: time,
-                    fileType: req.body.fileType
-                }, function(err){
-                    if(err) return next(err);
-                    res.redirect('/list')
-                });
+                res.redirect('/list')
             });
-        }
-       
+        });
+    }
+    
    };
 };
 //
