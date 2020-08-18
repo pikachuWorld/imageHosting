@@ -28,7 +28,7 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-server.setTimeout(130000);
+server.setTimeout(65000);
 server.on('timeout', function(){
   console.log('超时了');
 })
