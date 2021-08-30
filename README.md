@@ -23,5 +23,5 @@ $ npm install
 run the app:
 $ DEBUG=uploadphoto:* npm start 
 
-网站域名到期，服务暂停
+网站（域名到期，服务暂停）
 https://www.taolovesophia.com/
